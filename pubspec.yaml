@@ -1,0 +1,68 @@
+name: asdshop
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter    
+  get: ^4.3.4
+  yaml: ^3.1.0
+  http: ^0.13.3
+  flutter_svg: ^0.22.0
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.0.6
+  dartz: ^0.10.0-nullsafety.2
+  cached_network_image: ^3.1.0
+  flutter_secure_storage: ^4.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+   - assets/Imgs/
+
+  fonts:
+
+    - family: NunitoRegular
+      fonts:
+        - asset: assets/Font/Nunito/Nunito-Regular.ttf
+
+    - family: NunitoSemiBold
+      fonts:
+        - asset: assets/Font/Nunito/Nunito-SemiBold.ttf
+
+    - family: NunitoBold
+      fonts:
+        - asset: assets/Font/Nunito/Nunito-Bold.ttf
+
+    - family: NunitoExtraBold
+      fonts:
+        - asset: assets/Font/Nunito/Nunito-ExtraBold.ttf
+
+    - family: NunitoBlack
+      fonts:
+        - asset: assets/Font/Nunito/Nunito-Black.ttf
+
+    - family: OpenSasRegular
+      fonts:
+        - asset: assets/Font/Open_Sans/OpenSans-Regular.ttf
+
+    - family: OpenSasSemiBold
+      fonts:
+        - asset: assets/Font/Open_Sans/OpenSans-SemiBold.ttf
+
+    - family: OpenSasBold
+      fonts:
+        - asset: assets/Font/Open_Sans/OpenSans-Bold.ttf   

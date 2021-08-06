@@ -1,5 +1,6 @@
 class User {
 
+  final String id;
   final int role;
   final String name;
   final String lastName;
@@ -7,6 +8,7 @@ class User {
   final String imgProfile;
 
   User(
+    this.id,
     this.role,
     this.name,
     this.lastName,
@@ -16,6 +18,7 @@ class User {
 
   static User fromJson(json) {
     User user = new User(
+      json['_id'],
       json['role'],
       json['name'],
       json['lastName'],

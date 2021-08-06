@@ -6,6 +6,7 @@ import 'package:asdshop/app/models/product.dart';
 
 // Utils
 import 'package:asdshop/app/utils/theme.dart';
+import 'package:asdshop/app/utils/modal.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
 // Widgets
@@ -26,15 +27,7 @@ class ProductItem extends StatelessWidget {
     final Responsive _responsive = Responsive(context);
 
     return GestureDetector(
-      onTap: () {
-        showModalBottomSheet(
-          context: context,
-          backgroundColor: Colors.transparent,
-          isScrollControlled: true,
-          isDismissible: true,          
-          builder: (_) => ProductDetaild(product: product)
-        );
-      },
+      onTap: () => AsdModal.showModalBottom(context, ProductDetaild(product: product)),
       child: Container(
         width: double.infinity,
         height: 120,

@@ -24,6 +24,8 @@ shopping:
   history: Purchase history
   total: Total
   date: Date
+business:
+  productsEmpty: You have no products created.
 profile:
   name: Name
   lastName: Last Name

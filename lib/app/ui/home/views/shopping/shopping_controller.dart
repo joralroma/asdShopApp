@@ -35,7 +35,7 @@ class ShoppingController extends GetxController {
       final Either<AsdError, List<Shopping>> result = await _homeResource.getListShopping();
       result.fold(
         (l) => error = l,
-        (r) => _doSuccessGetListPurchase(r)
+        (r) => _doSuccessGetListShopping(r)
       );
     } else {
       readyView = true;  
@@ -43,7 +43,7 @@ class ShoppingController extends GetxController {
     return error;
   }
 
-  void _doSuccessGetListPurchase(List<Shopping> list) {
+  void _doSuccessGetListShopping(List<Shopping> list) {
     data.shopping = list;
     readyView = true;
   }

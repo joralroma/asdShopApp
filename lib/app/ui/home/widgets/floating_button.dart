@@ -1,7 +1,9 @@
-import 'package:asdshop/app/utils/theme.dart';
+import 'package:asdshop/app/ui/home/views/business/widgets/add_product.dart';
 import 'package:flutter/material.dart';
 
 // Utils
+import 'package:asdshop/app/utils/theme.dart';
+import 'package:asdshop/app/utils/modal.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
 class AsdFloatingButton extends StatelessWidget {
@@ -14,7 +16,7 @@ class AsdFloatingButton extends StatelessWidget {
     final Responsive _responsive = Responsive(context);
 
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () => AsdModal.showModalBottom(context, AddProduct()),
       backgroundColor: AsdTheme.primaryColor,
       child: Center(
         child: Icon(

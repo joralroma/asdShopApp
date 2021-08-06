@@ -1,6 +1,5 @@
-import 'package:asdshop/app/models/error.dart';
-import 'package:asdshop/app/utils/modal.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -11,6 +10,7 @@ import 'package:asdshop/app/ui/home/home_controller.dart';
 import 'package:asdshop/app/i18n/asd_localization.dart';
 
 // Models
+import 'package:asdshop/app/models/error.dart';
 import 'package:asdshop/app/models/product.dart';
 
 // Widgets
@@ -19,7 +19,7 @@ import 'package:asdshop/app/ui/widgets/text_item.dart';
 
 // Utils
 import 'package:asdshop/app/utils/theme.dart';
-import 'package:get/route_manager.dart';
+import 'package:asdshop/app/utils/modal.dart';
 
 
 class ProductDetaild extends GetWidget<HomeController> {

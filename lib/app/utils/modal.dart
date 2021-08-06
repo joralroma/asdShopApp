@@ -63,39 +63,13 @@ class AsdModal {
     );
   }
 
-  static void showModal(BuildContext context, Widget child) {
-    showCupertinoDialog(
+  static void showModalBottom(BuildContext context, Widget widget) {
+    showModalBottomSheet(
       context: context,
-      builder: (context) => WillPopScope(
-        onWillPop: () async => false,
-        child: child
-      ),
-    );
-  }
-
-  static void showModalWithBlur(BuildContext context, Widget child, {double opacity = 0.7}) {
-    showCupertinoDialog(
-      context: context,
-      builder: (context) => WillPopScope(
-        onWillPop: () async => false,
-        child: Stack(
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(0),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    // color: Colors.black.withOpacity(0.1),
-                    color: Colors.white.withOpacity(opacity),
-                  ),
-                ),
-              ),
-            ),
-            child
-          ],
-        ),
-      ),
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      isDismissible: true,
+      builder: (_) => widget
     );
   }
 

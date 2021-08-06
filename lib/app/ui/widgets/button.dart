@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:asdshop/app/utils/theme.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
-class ButtonAsd extends StatelessWidget {
+class AsdButton extends StatelessWidget {
 
-  const ButtonAsd({
+  const AsdButton({
     Key? key,
     required this.text,
     this.colorText = Colors.white,

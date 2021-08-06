@@ -1,0 +1,31 @@
+login:
+  email: Email
+  password: Password
+  login: Login
+  dontHaveAccount: ¿Don't have an account?
+register:
+  email: Email
+  password: Password
+  register: Register
+  haveAccount: ¿Already have an account?
+body:
+  name: Name
+  description: Description
+  stock: Stock
+  price: Price
+  buy: Buy
+  welcome: Welcome
+  productsEmpty: No products have been added.
+shopping:
+  historyEmpty: He has not yet made his first purchase.
+  history: Purchase history
+  total: Total
+  date: Date
+profile:
+  name: Name
+  lastName: Last Name
+  email: Email
+  role: Role
+  logout: Logout
+  seller: Seller
+  user: User

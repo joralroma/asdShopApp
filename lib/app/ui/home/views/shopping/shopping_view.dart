@@ -1,6 +1,8 @@
-import 'package:asdshop/app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+
+// i18n
+import 'package:asdshop/app/i18n/asd_localization.dart';
 
 // Models
 import 'package:asdshop/app/models/error.dart';
@@ -18,6 +20,7 @@ import 'shopping_controller.dart';
 
 // Utils
 import 'package:asdshop/app/utils/modal.dart';
+import 'package:asdshop/app/utils/theme.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
 class ShoppingView extends StatefulWidget {
@@ -46,10 +49,12 @@ class _ShoppingViewState extends State<ShoppingView> {
 
     final Responsive _responsive = Responsive(context);
 
+    final AsdLocalization _asdLocalization = AsdLocalization.of(context);
+
     return Obx(
       () => _shoppingController.readyView ? ( _shoppingController.data.shopping!.isEmpty ? Center(
         child: Text(
-          'Aún no ha hecho su primera compra.',
+          _asdLocalization.translate('shopping.historyEmpty'),
           textAlign: TextAlign.center,
           style: AsdTheme.styleTitle.copyWith(
             fontSize: _responsive.ip(3.8)
@@ -65,7 +70,7 @@ class _ShoppingViewState extends State<ShoppingView> {
                 Container(
                   margin: const EdgeInsets.only(bottom: 30),
                   child: Text(
-                    'Historial de compras',
+                    _asdLocalization.translate('shopping.history'),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AsdTheme.styleTitle.copyWith(

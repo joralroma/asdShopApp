@@ -10,9 +10,11 @@ class AsdTextItem extends StatelessWidget {
     Key? key,
     required this.label,
     required this.text,
+    this.maxLines = 1
   }) : super(key: key);
 
   final String label, text;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class AsdTextItem extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              maxLines: 1,
+              maxLines: maxLines,
               overflow: TextOverflow.ellipsis,
               style: AsdTheme.styleText.copyWith(
                 fontSize: _responsive.ip(1.8),

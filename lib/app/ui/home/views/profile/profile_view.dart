@@ -1,18 +1,23 @@
-import 'package:asdshop/app/navigation/routes.dart';
-import 'package:asdshop/app/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+
+// i18n
+import 'package:asdshop/app/i18n/asd_localization.dart';
+
+// Navigation
+import 'package:asdshop/app/navigation/routes.dart';
 
 // Controller
 import 'package:asdshop/app/ui/home/home_controller.dart';
 import 'package:get/route_manager.dart';
 
 // Widgets
-import 'text_item.dart';
 import 'package:asdshop/app/ui/widgets/button.dart';
+import 'package:asdshop/app/ui/widgets/text_item.dart';
 import 'package:asdshop/app/ui/widgets/circle_avatar.dart';
 
 // Utils
+import 'package:asdshop/app/utils/theme.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
 
@@ -22,8 +27,11 @@ class ProfileView extends GetWidget<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    
+    final AsdLocalization _asdLocalization = AsdLocalization.of(context);
 
     final Responsive _responsive = Responsive(context);
+
 
     return Center(
       child: SingleChildScrollView(
@@ -38,24 +46,24 @@ class ProfileView extends GetWidget<HomeController> {
               ),
               const SizedBox(height: 50),
               AsdTextItem(
-                label: 'Nombre',
+                label: _asdLocalization.translate('profile.name'),
                 text: controller.data.user!.name,
               ),
               AsdTextItem(
-                label: 'Apellido',
+                label: _asdLocalization.translate('profile.lastName'),
                 text: controller.data.user!.lastName,
               ),
               AsdTextItem(
-                label: 'Email',
+                label: _asdLocalization.translate('profile.email'),
                 text: controller.data.user!.email,
               ),
               AsdTextItem(
-                label: 'Rol',
-                text: (controller.data.user!.role == 1) ? 'Vendedor' : 'Usuario',
+                label: _asdLocalization.translate('profile.role'),
+                text: (controller.data.user!.role == 1) ? _asdLocalization.translate('profile.seller') : _asdLocalization.translate('profile.user'),
               ),
               const SizedBox(height: 40),
-              ButtonAsd(
-                text: 'Cerrar Sesión',
+              AsdButton(
+                text: _asdLocalization.translate('profile.logout'),
                 onPressed: _logout,
                 color: AsdTheme.primaryColor,
               ),

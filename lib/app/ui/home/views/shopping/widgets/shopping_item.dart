@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+// i18n
+import 'package:asdshop/app/i18n/asd_localization.dart';
+
 // Models
 import 'package:asdshop/app/models/shopping.dart';
 
@@ -22,6 +25,8 @@ class ShoppingItem extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final Responsive _responsive = Responsive(context);
+
+    final AsdLocalization _asdLocalization = AsdLocalization.of(context);
 
     return Container(
       width: double.infinity,
@@ -68,7 +73,7 @@ class ShoppingItem extends StatelessWidget {
             children: [
               Flexible(
                 child: Text(
-                  'Total: ${shopping.total}',
+                  '${_asdLocalization.translate('shopping.total')}: ${shopping.total}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: AsdTheme.styleTitle.copyWith(
@@ -78,7 +83,7 @@ class ShoppingItem extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                'Fecha: ${shopping.createdAt.toDateTime.toTimeCard}',
+                '${_asdLocalization.translate('shopping.date')}: ${shopping.createdAt.toDateTime.toTimeCard}',
                 style: AsdTheme.styleTitle.copyWith(
                   fontSize: _responsive.ip(1.8)
                 ),

@@ -1,3 +1,4 @@
+import 'package:asdshop/app/i18n/asd_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -29,6 +30,8 @@ class LoginPage extends GetWidget<LoginController> {
 
     final Responsive _responsive = Responsive(context);
 
+    final AsdLocalization _asdLocalization = AsdLocalization.of(context);
+
     return Scaffold(
       backgroundColor: AsdTheme.primaryColor,
       body: GestureDetector(
@@ -52,22 +55,22 @@ class LoginPage extends GetWidget<LoginController> {
                     ),
                     const SizedBox(height: 40),
                     InputAsd(
-                      placeholder: 'Username',
+                      placeholder: _asdLocalization.translate('login.email'),
                       model: controller.username,
                     ),
                     const SizedBox(height: 40),
                     InputAsd(
-                      placeholder: 'Password',
+                      placeholder: _asdLocalization.translate('login.password'),
                       model: controller.password,
                     ),
                     const SizedBox(height: 40),
-                    ButtonAsd(
-                      text: 'Login',
+                    AsdButton(
+                      text: _asdLocalization.translate('login.login'),
                       onPressed: () => _dologin(context),
                     ),
                     const SizedBox(height: 40),
                     Text(
-                      '¿No tienes cuenta?',
+                      _asdLocalization.translate('login.dontHaveAccount'),
                       style: AsdTheme.styleText.copyWith(
                         fontSize: _responsive.ip(1.6),
                         color: Colors.white,

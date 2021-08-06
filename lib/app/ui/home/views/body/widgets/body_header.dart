@@ -1,8 +1,11 @@
-import 'package:asdshop/app/ui/widgets/circle_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
+// i18n
+import 'package:asdshop/app/i18n/asd_localization.dart';
+
+// Widgets
+import 'package:asdshop/app/ui/widgets/circle_avatar.dart';
 
 // Controller
 import 'package:asdshop/app/ui/home/home_controller.dart';
@@ -19,6 +22,8 @@ class BodyHeader extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
 
     final Responsive _responsive = Responsive(context);
+
+    final AsdLocalization _asdLocalization = AsdLocalization.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
@@ -41,7 +46,7 @@ class BodyHeader extends GetWidget<HomeController> {
           ),
           const SizedBox(height: 20),
           Text(
-            'Bienvenido, ${controller.data.user?.name}',
+            '${_asdLocalization.translate('body.welcome')}, ${controller.data.user?.name}',
             style: AsdTheme.styleTitle.copyWith(
               fontSize: _responsive.ip(2.6)
             ),

@@ -1,0 +1,31 @@
+login:
+  email: Correo
+  password: Contraseña
+  login: Iniciar Sesión
+  dontHaveAccount: ¿No tienes cuenta?
+register:
+  email: Correo
+  password: Contraseña
+  register: Registrar
+  haveAccount: ¿Ya tienes cuenta?
+body:
+  name: Nombre
+  description: Descripción
+  stock: Stock
+  price: Precio
+  buy: Comprar
+  welcome: Bienvenido
+  productsEmpty: No se han añadido productos.
+shopping:
+  historyEmpty: Aún no ha hecho su primera compra.
+  history: Historial de compras
+  total: Total
+  date: Fecha
+profile:
+  name: Nombre
+  lastName: Apellido
+  email: Correo
+  role: Rol
+  logout: Cerrar Sesión
+  seller: Vendedor
+  user: Usuario

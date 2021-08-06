@@ -6,8 +6,8 @@ import 'package:asdshop/app/models/error.dart';
 
 abstract class MainResource {
   
-  Future<Either<AsdError, String>> login(String url, Map body);
+  Future<Either<AsdError, String>> login(Map body);
 
-  Future<Either<AsdError, User>> getDataUser(String url);
+  Future<Either<AsdError, User>> getDataUser();
 
 }

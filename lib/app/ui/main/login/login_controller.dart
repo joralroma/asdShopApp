@@ -37,7 +37,7 @@ class LoginController extends GetxController {
   Future<String> doLogin() async {
     String _error = '';
     final Map<String, String> _data = { 'email': username.text, 'password': password.text };
-    Either<AsdError, String> _result = await _mainResource.login('user/login', _data);
+    Either<AsdError, String> _result = await _mainResource.login(_data);
     _result.fold(
       (l) => _error = l.message,
       (r) async => await store.setToken(r)

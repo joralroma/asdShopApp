@@ -43,7 +43,7 @@ class BodyHeader extends GetWidget<HomeController> {
           Text(
             'Bienvenido, ${controller.data.user?.name}',
             style: AsdTheme.styleTitle.copyWith(
-              fontSize: _responsive.wp(5.8)
+              fontSize: _responsive.ip(2.6)
             ),
           )
         ],

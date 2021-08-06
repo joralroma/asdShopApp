@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 // Utils
 import 'package:asdshop/app/utils/responsive.dart';
 
-class HomeLoader extends StatefulWidget {
-  HomeLoader({Key? key}) : super(key: key);
+class ShoppingLoader extends StatefulWidget {
+  ShoppingLoader({Key? key}) : super(key: key);
 
   @override
-  _HomeLoaderState createState() => _HomeLoaderState();
+  _ShoppingLoaderState createState() => _ShoppingLoaderState();
 }
 
-class _HomeLoaderState extends State<HomeLoader> with SingleTickerProviderStateMixin {
+class _ShoppingLoaderState extends State<ShoppingLoader> with SingleTickerProviderStateMixin {
 
   late AnimationController controllerOne;
   late Animation<Color?> animationOne;
@@ -49,15 +49,15 @@ class _HomeLoaderState extends State<HomeLoader> with SingleTickerProviderStateM
             end: Alignment.centerRight,
             colors: [animationOne.value!, animationTwo.value!]).createShader(rect,textDirection: TextDirection.ltr);
       },
-      child:  LoadingHome()
+      child:  LoadingShopping()
     );
   }
 
 }
 
-class LoadingHome extends StatelessWidget {
+class LoadingShopping extends StatelessWidget {
 
-  const LoadingHome({Key? key}) : super(key: key);
+  const LoadingShopping({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

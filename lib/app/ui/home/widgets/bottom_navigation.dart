@@ -35,7 +35,7 @@ class AsdBottomNavigation extends GetView<HomeController> {
             activeIcon: Icon( Icons.add_shopping_cart),
             label: ''
           ),
-          BottomNavigationBarItem(
+          if(controller.readyView && controller.data.user!.role == 1) BottomNavigationBarItem(
             icon: Icon( Icons.add_business ),
             activeIcon: Icon( Icons.add_business ),
             label: ''

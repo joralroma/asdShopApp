@@ -12,8 +12,8 @@ import 'package:asdshop/app/models/product.dart';
 import 'package:asdshop/app/ui/home/home_controller.dart';
 
 // Widgets
-import 'views/body/body_view.dart';
 import 'widgets/home_loader.dart';
+import 'views/body/body_view.dart';
 import 'widgets/floating_button.dart';
 import 'widgets/bottom_navigation.dart';
 import 'views/profile/profile_view.dart';
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     ));    
   }
 
-  final List<Widget> _views = [
+  List<Widget> _views = [
     BodyView(),
     ShoppingView(),
     BusinessView(),
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             ],
           )
         ),
-        floatingActionButton: (_homeController.readyView && _homeController.currentIndex == 0 && _homeController.data.user!.role == 1) ? AsdFloatingButton() : null,
+        floatingActionButton: (_homeController.readyView && _homeController.currentIndex == 2 && _homeController.data.user!.role == 1) ? AsdFloatingButton() : null,
         bottomNavigationBar: AsdBottomNavigation(),
       ),
     );
@@ -107,6 +107,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _doSuccessGetListProducts(List<Product> products) {
+    if(_homeController.data.user?.role != 1) {
+      _views.removeAt(2);
+    }
     _homeController.products = products;
     _homeController.readyView = true;
   }

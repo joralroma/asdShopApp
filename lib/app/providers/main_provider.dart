@@ -19,10 +19,10 @@ class MainProvider implements MainResource {
   MainProvider(this._http);
 
   @override
-  Future<Either<AsdError, String>> login(String url, Map body) async {
+  Future<Either<AsdError, String>> login(Map body) async {
     String error = 'Error en el login.';
     try {
-      final response = await _http.httpPost(url, body);
+      final response = await _http.httpPost('user/login', body);
       final data = json.decode(response.body);
       if (response.statusCode == 200) {
         final AsdData _data = AsdData.instance;
@@ -39,10 +39,10 @@ class MainProvider implements MainResource {
   }
 
   @override
-  Future<Either<AsdError, User>> getDataUser(String url) async {
+  Future<Either<AsdError, User>> getDataUser() async {
     String error = 'Error al traer la información del usuario.';
     try {
-      final response = await _http.httpGet(url);
+      final response = await _http.httpGet('user/getDataUser');
       final data = json.decode(response.body);
       if (response.statusCode == 200) {
         final AsdData _data = AsdData.instance;

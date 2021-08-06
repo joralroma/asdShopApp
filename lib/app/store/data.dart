@@ -1,5 +1,6 @@
 // Models
 import 'package:asdshop/app/models/user.dart';
+import 'package:asdshop/app/models/shopping.dart';
 
 class AsdData {
 
@@ -8,5 +9,7 @@ class AsdData {
   static AsdData get instance => _singleton;
 
   User? user;
+
+  List<Shopping>? shopping;
 
 }

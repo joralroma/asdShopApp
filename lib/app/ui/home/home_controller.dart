@@ -56,12 +56,12 @@ class HomeController extends GetxController {
   }
 
   Future<Either<AsdError, User>> getDataUser() async {
-    final Either<AsdError, User> result = await _mainResource.getDataUser('user/getDataUser');
+    final Either<AsdError, User> result = await _mainResource.getDataUser();
     return result;
   }
 
   Future<Either<AsdError, List<Product>>> getListPrducts() async {
-    final Either<AsdError, List<Product>> result = await _homeResource.getListProducts('product/getAllProduts');
+    final Either<AsdError, List<Product>> result = await _homeResource.getListProducts();
     return result;
   }
 

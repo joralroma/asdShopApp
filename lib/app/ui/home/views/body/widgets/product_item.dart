@@ -104,6 +104,17 @@ class ProductItem extends StatelessWidget {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10),
+                      Flexible(
+                        child: Text(
+                          '\$ ${product.price}',
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: AsdTheme.styleTitle.copyWith(
+                            fontSize: _responsive.ip(1.8),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 )

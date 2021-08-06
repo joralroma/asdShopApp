@@ -13,12 +13,12 @@ import 'package:asdshop/app/ui/widgets/loader.dart';
 
 class AsdModal {
 
-  static void showSnackbar(BuildContext context, String title, String msm) {
+  static void showSnackbar(BuildContext context, String title, String msm, {Color bg = Colors.red}) {
     Responsive _responsive = Responsive(context);
     Get.snackbar(
       title,
       msm,
-      backgroundColor: Colors.red,
+      backgroundColor: bg,
       messageText: Text(
         msm,
         style: AsdTheme.styleTitle.copyWith(

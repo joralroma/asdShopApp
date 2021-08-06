@@ -5,6 +5,7 @@ class Product {
   final String id;
   final String name;
   final String description;
+  final double price;
   final int stock;
   final List<String> imgs;
 
@@ -12,6 +13,7 @@ class Product {
     this.id,
     this.name,
     this.description,
+    this.price,
     this.stock,
     this.imgs,
   );
@@ -21,6 +23,7 @@ class Product {
       json['_id'],
       json['name'],
       json['description'],
+      json['price'],
       json['stock'],
       json['imgs'].map<String>((e) => '$e').toList(),
     );

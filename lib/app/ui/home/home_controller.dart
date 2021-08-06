@@ -11,6 +11,7 @@ import 'package:asdshop/app/store/data.dart';
 import 'package:asdshop/app/models/user.dart';
 import 'package:asdshop/app/models/error.dart';
 import 'package:asdshop/app/models/product.dart';
+import 'package:asdshop/app/models/shopping.dart';
 
 // Resource
 import 'package:asdshop/app/resources/main_resource.dart';
@@ -63,6 +64,29 @@ class HomeController extends GetxController {
   Future<Either<AsdError, List<Product>>> getListPrducts() async {
     final Either<AsdError, List<Product>> result = await _homeResource.getListProducts();
     return result;
+  }
+
+  Future<AsdError?> saveShopping(Map<String, dynamic> body, Product product) async {
+    AsdError? _error;
+    final Either<AsdError, String> result = await _homeResource.saveShopping(body);
+    result.fold(
+      (l) => _error = l,
+      (r) => _doSaveShopping(r, product)
+    );
+    return _error;
+  }
+
+  void _doSaveShopping(String id, Product product) {
+    final Shopping _shopping = Shopping(
+      id,
+      '',
+      product,
+      product.price,
+      DateTime.now().toString()
+    );
+    if(data.shopping != null) {
+      data.shopping!.add(_shopping);
+    }
   }
 
 }

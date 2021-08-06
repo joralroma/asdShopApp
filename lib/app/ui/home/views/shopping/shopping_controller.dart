@@ -32,7 +32,7 @@ class ShoppingController extends GetxController {
   Future<AsdError?> getListPurchase() async {
     AsdError? error;
     if(data.shopping.isNull) {
-      final Either<AsdError, List<Shopping>> result = await _homeResource.getListPurchase();
+      final Either<AsdError, List<Shopping>> result = await _homeResource.getListShopping();
       result.fold(
         (l) => error = l,
         (r) => _doSuccessGetListPurchase(r)

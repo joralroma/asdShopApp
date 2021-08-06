@@ -8,6 +8,7 @@ import 'package:asdshop/app/models/shopping.dart';
 abstract class HomeResource {
   
   Future<Either<AsdError, List<Product>>> getListProducts();
-  Future<Either<AsdError, List<Shopping>>> getListPurchase();
+  Future<Either<AsdError, List<Shopping>>> getListShopping();
+  Future<Either<AsdError, String>> saveShopping(Map<String, dynamic> body);
 
 }

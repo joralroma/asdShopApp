@@ -1,5 +1,11 @@
+import 'package:asdshop/app/models/error.dart';
+import 'package:asdshop/app/utils/modal.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+
+// Controller
+import 'package:asdshop/app/ui/home/home_controller.dart';
 
 // i18n
 import 'package:asdshop/app/i18n/asd_localization.dart';
@@ -13,8 +19,10 @@ import 'package:asdshop/app/ui/widgets/text_item.dart';
 
 // Utils
 import 'package:asdshop/app/utils/theme.dart';
+import 'package:get/route_manager.dart';
 
-class ProductDetaild extends StatelessWidget {
+
+class ProductDetaild extends GetWidget<HomeController> {
 
   const ProductDetaild({
     Key? key,
@@ -79,19 +87,33 @@ class ProductDetaild extends StatelessWidget {
             ),
             AsdTextItem(
               label: _asdLocalization.translate('body.price'),
-              text: '${product.stock}',
+              text: '\$ ${product.price}',
               maxLines: 4,
             ),
             const SizedBox(height: 50),
             AsdButton(
               text: _asdLocalization.translate('body.buy'),
               color: AsdTheme.primaryColor,
+              onPressed: () => _doBuyProduct(context, _asdLocalization),
             )
           ]
         ),
       ),
     );
 
+  }
+
+  void _doBuyProduct(BuildContext context, AsdLocalization _asdLocalization) async {
+    AsdModal.showModalLoader(context);
+    final Map<String, dynamic> body = {'total': product.price, 'product': product.id};
+    final AsdError? _result = await controller.saveShopping(body, product);
+    Get.back();
+    if(_result == null) {
+      Get.back();
+      AsdModal.showSnackbar(context, 'Ok!', _asdLocalization.translate('body.purchaseSuccessful'), bg: Colors.lightGreen);
+    } else {
+      AsdModal.showSnackbar(context, '¡Error!', _result.message);
+    }    
   }
 
 }

@@ -18,6 +18,7 @@ body:
   buy: Buy
   welcome: Welcome
   productsEmpty: No products have been added.
+  purchaseSuccessful: Your purchase was successful.
 shopping:
   historyEmpty: He has not yet made his first purchase.
   history: Purchase history

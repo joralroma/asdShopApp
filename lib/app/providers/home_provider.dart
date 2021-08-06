@@ -35,7 +35,7 @@ class HomeProvider implements HomeResource {
   }
 
   @override
-  Future<Either<AsdError, List<Shopping>>> getListPurchase() async {
+  Future<Either<AsdError, List<Shopping>>> getListShopping() async {
     String error = 'Error al traer las compras.';
     try {
       final response = await _http.httpGet('shopping/getAllShopping');
@@ -43,6 +43,24 @@ class HomeProvider implements HomeResource {
       if (response.statusCode == 200) {
         final List<Shopping> shopping = Shopping.fromJsonList(data['shopping']);
         return Right(shopping);
+      } else {
+        error = data?['message'] ?? error;
+        return Left(AsdError(error));
+      }      
+    } catch (e) {
+      return Left(AsdError(error));
+    }
+  }
+
+  @override
+  Future<Either<AsdError, String>> saveShopping(Map<String, dynamic> body) async {
+    String error = 'Error al crear la compra.';
+    try {
+      final response = await _http.httpPost('shopping/saveShopping', body);
+      final data = json.decode(response.body);
+      if (response.statusCode == 200) {
+        final String _id = data['shopping']['_id'];
+        return Right(_id);
       } else {
         error = data?['message'] ?? error;
         return Left(AsdError(error));

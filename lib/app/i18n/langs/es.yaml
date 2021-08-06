@@ -4,6 +4,8 @@ login:
   login: Iniciar Sesión
   dontHaveAccount: ¿No tienes cuenta?
 register:
+  name: Nombre
+  lastName: Apellido
   email: Correo
   password: Contraseña
   register: Registrar

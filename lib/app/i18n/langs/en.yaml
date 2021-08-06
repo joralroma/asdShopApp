@@ -4,6 +4,8 @@ login:
   login: Login
   dontHaveAccount: ¿Don't have an account?
 register:
+  name: Name
+  lastName: Last Name  
   email: Email
   password: Password
   register: Register

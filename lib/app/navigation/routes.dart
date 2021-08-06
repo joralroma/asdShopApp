@@ -4,17 +4,20 @@ import 'package:get/get.dart';
 import 'package:asdshop/app/ui/home/home_page.dart';
 import 'package:asdshop/app/ui/main/login/login_page.dart';
 import 'package:asdshop/app/ui/main/splash/splash_page.dart';
+import 'package:asdshop/app/ui/main/register/register_page.dart';
 
 
 // Binding
 import 'package:asdshop/app/ui/home/home_binding.dart';
 import 'package:asdshop/app/ui/main/login/login_binding.dart';
 import 'package:asdshop/app/ui/main/splash/splash_binding.dart';
+import 'package:asdshop/app/ui/main/register/register_binding.dart';
 
 class AsdPages {
 
   static const String SplashPage = '/';
   static const String LoginPage = '/login';
+  static const String RegisterPage = '/register';
   static const String HomePage = '/home';
 
 }
@@ -30,6 +33,11 @@ List<GetPage> routes = [
     name: AsdPages.LoginPage,
     page: () => LoginPage(),
     binding: LoginBinding(),
+  ),
+  GetPage(
+    name: AsdPages.RegisterPage,
+    page: () => RegisterPage(),
+    binding: RegisterBinding(),
   ),
   GetPage(
     name: AsdPages.HomePage,

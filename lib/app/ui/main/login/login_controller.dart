@@ -34,12 +34,12 @@ class LoginController extends GetxController {
 
   bool get verifyForm => ( username.text.valid && password.text.valid );
 
-  Future<String> doLogin() async {
-    String _error = '';
+  Future<AsdError?> doLogin() async {
+    AsdError? _error;
     final Map<String, String> _data = { 'email': username.text, 'password': password.text };
     Either<AsdError, String> _result = await _mainResource.login(_data);
     _result.fold(
-      (l) => _error = l.message,
+      (l) => _error = l,
       (r) async => await store.setToken(r)
     );
     return _error;

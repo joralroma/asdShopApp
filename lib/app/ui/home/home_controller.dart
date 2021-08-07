@@ -10,6 +10,7 @@ import 'package:asdshop/app/store/data.dart';
 // Models
 import 'package:asdshop/app/models/user.dart';
 import 'package:asdshop/app/models/error.dart';
+import 'package:asdshop/app/models/input.dart';
 import 'package:asdshop/app/models/product.dart';
 import 'package:asdshop/app/models/shopping.dart';
 
@@ -33,6 +34,14 @@ class HomeController extends GetxController {
 
   final RxList<Product> _products = RxList([]);
 
+  final InputModel search = InputModel();
+
+  @override
+  void onInit() {
+    super.onInit();
+    search.onChange(_onChangeSearch);
+  }
+
   @override
   void onClose() {
     _currentIndex.close();
@@ -54,6 +63,15 @@ class HomeController extends GetxController {
     if(readyView && currentIndex != index) {
       currentIndex = index;
     }
+  }
+
+  void _onChangeSearch() {
+    _products.addAll([]);
+  }
+
+  bool filter(Product p) {
+    return p.name.toLowerCase().contains(search.text.toLowerCase());
+    // return false;
   }
 
   Future<Either<AsdError, User>> getDataUser() async {

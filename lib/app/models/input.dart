@@ -27,4 +27,8 @@ class InputModel {
     _textEditingController.dispose();
   }
 
+  void onChange(Function onChange) {
+    _textEditingController.addListener(() => onChange());
+  }
+
 }

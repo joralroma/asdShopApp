@@ -11,6 +11,7 @@ register:
   register: Registrar
   haveAccount: ¿Ya tienes cuenta?
 body:
+  search: Buscar
   name: Nombre
   description: Descripción
   stock: Stock

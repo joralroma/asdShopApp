@@ -24,7 +24,7 @@ class BodyView extends GetWidget<HomeController> {
             const BodyHeader(),
             Obx(
               () => controller.products.isEmpty ? const BodyEmpty() : Column(
-                children: controller.products.map((e) => ProductItem(product: e)).toList()
+                children: controller.products.where(controller.filter).map((e) => ProductItem(product: e)).toList()
               )
             )
           ],

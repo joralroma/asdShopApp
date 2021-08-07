@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:asdshop/app/i18n/asd_localization.dart';
 
 // Widgets
+import 'package:asdshop/app/ui/widgets/input.dart';
 import 'package:asdshop/app/ui/widgets/circle_avatar.dart';
 
 // Controller
@@ -50,7 +51,13 @@ class BodyHeader extends GetWidget<HomeController> {
             style: AsdTheme.styleTitle.copyWith(
               fontSize: _responsive.ip(2.6)
             ),
-          )
+          ),
+          const SizedBox(height: 20),
+          InputAsd(
+            placeholder: _asdLocalization.translate('body.search'),
+            model: controller.search,
+            colorText: AsdTheme.colorText,
+          ),          
         ],
       ),
     );

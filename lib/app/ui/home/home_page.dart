@@ -66,12 +66,15 @@ class _HomePageState extends State<HomePage> {
       () => Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: Column(
-            children: [
-              Expanded(
-                child: _homeController.readyView ? _views[_homeController.currentIndex] : HomeLoader(),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
+            child: Column(
+              children: [
+                Expanded(
+                  child: _homeController.readyView ? _views[_homeController.currentIndex] : HomeLoader(),
+                ),
+              ],
+            ),
           )
         ),
         floatingActionButton: (_homeController.readyView && _homeController.currentIndex == 2 && _homeController.data.user!.role == 1) ? AsdFloatingButton() : null,

@@ -128,7 +128,7 @@ class BusinessController extends GetxController {
       "imgs": imgs,
       "caterogy": category.value.id      
     };
-    final Either<AsdError, String> result = await _homeResource.saveProduct(_data);
+    final Either<AsdError, Product> result = await _homeResource.saveProduct(_data);
     result.fold(
       (l) => _error = l,
       (r) => _doSaveProduct(r, _data)
@@ -136,19 +136,8 @@ class BusinessController extends GetxController {
     return _error;
   }
 
-  void _doSaveProduct(String id, Map<String, dynamic> body) {
-    final Product _product = Product(
-      id,
-      body['name'],
-      body['description'],
-      body['price'],
-      body['stock'],
-      body['imgs'],
-      data.user!.id,
-      body['caterogy']
-    );    
-    _products.add(_product);
-    _homeController.products.add(_product);
+  void _doSaveProduct(Product product, Map<String, dynamic> body) {   
+    _products.add(product);
     resetData();
   }
 

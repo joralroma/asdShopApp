@@ -12,6 +12,6 @@ abstract class HomeResource {
   Future<Either<AsdError, List<Shopping>>> getListShopping();
   Future<Either<AsdError, List<Category>>> getListCategory();
   Future<Either<AsdError, String>> saveShopping(Map<String, dynamic> body);
-  Future<Either<AsdError, String>> saveProduct(Map<String, dynamic> body);
+  Future<Either<AsdError, Product>> saveProduct(Map<String, dynamic> body);
 
 }

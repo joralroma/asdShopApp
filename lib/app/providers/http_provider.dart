@@ -22,7 +22,7 @@ class HttpProvider implements HttpResource {
   String _baseUrl = '';
   
   HttpProvider() {
-    _baseUrl = _config.prod ? _config.urlLoginProd : _config.urlLoginDev;
+    _baseUrl = _config.prod ? _config.urlBackProd : _config.urlBackDev;
   }
 
   Future<Map<String, String>> _getHeaders() async {
@@ -32,7 +32,6 @@ class HttpProvider implements HttpResource {
       "Accept": "application/json",
       if(_token.valid) 'authorization' : _token!
     };
-    print(_headers);
     return _headers;
   }
 

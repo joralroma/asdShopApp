@@ -36,7 +36,7 @@ class ProductItem extends StatelessWidget {
         width: double.infinity,
         height: 120,
         padding: const EdgeInsets.all(10.0),
-        margin: const EdgeInsets.only(bottom: 20),
+        margin: const EdgeInsets.only(right: 2, bottom: 20, left: 2),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),

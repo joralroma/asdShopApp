@@ -21,7 +21,6 @@ class Session  {
 
   Future<bool> _verifyToken() async {
     final bool token = await store.validateToken();
-    print('verifyyyyy $token');
     if(token){
       return true;
     }

@@ -37,7 +37,6 @@ class Product {
   }
 
   static List<Product> fromJsonList(Iterable data) {
-    inspect(data);
     List<Product> list = [];
     for (var e in data) list.add(fromJson(e));
     return list;

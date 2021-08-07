@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:dartz/dartz.dart';
 
@@ -6,6 +9,7 @@ import 'package:asdshop/app/app_controller.dart';
 
 // Store
 import 'package:asdshop/app/store/data.dart';
+import 'package:asdshop/app/store/socket.dart';
 
 // Models
 import 'package:asdshop/app/models/user.dart';
@@ -36,10 +40,13 @@ class HomeController extends GetxController {
 
   final InputModel search = InputModel();
 
+  final AsdSocket _asdSocket = AsdSocket();
+
   @override
   void onInit() {
-    super.onInit();
+    _initSocket();
     search.onChange(_onChangeSearch);
+    super.onInit();
   }
 
   @override
@@ -105,6 +112,17 @@ class HomeController extends GetxController {
     if(data.shopping != null) {
       data.shopping!.add(_shopping);
     }
+  }
+
+
+  void _initSocket() {
+    _asdSocket.initState();
+    _asdSocket.onListenerEvent('newProduct', _newProductEvent);
+  }
+
+  void _newProductEvent(dynamic data) {
+    final Product _product = Product.fromJson(json.decode(json.encode(data)));
+    _products.add(_product);
   }
 
 }

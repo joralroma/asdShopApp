@@ -92,14 +92,14 @@ class HomeProvider implements HomeResource {
   }
 
   @override
-  Future<Either<AsdError, String>> saveProduct(Map<String, dynamic> body) async {
+  Future<Either<AsdError, Product>> saveProduct(Map<String, dynamic> body) async {
     String error = 'Error al crear el producto.';
     try {
       final response = await _http.httpPost('product/saveProduct', body);
       final data = json.decode(response.body);
       if (response.statusCode == 200) {
-        final String _id = data['product']['_id'];
-        return Right(_id);
+        final Product _product = Product.fromJson(data['product']);
+        return Right(_product);
       } else {
         error = data?['message'] ?? error;
         return Left(AsdError(error));

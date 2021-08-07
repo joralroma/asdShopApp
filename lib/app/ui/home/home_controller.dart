@@ -1,11 +1,6 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:dartz/dartz.dart';
-
-// Controller
-import 'package:asdshop/app/app_controller.dart';
 
 // Store
 import 'package:asdshop/app/store/data.dart';
@@ -28,8 +23,6 @@ class HomeController extends GetxController {
   final HomeResource _homeResource;
 
   HomeController(this._mainResource, this._homeResource);
-
-  final AppController appController = Get.find<AppController>();
 
   final AsdData data = AsdData.instance;
 
@@ -78,17 +71,31 @@ class HomeController extends GetxController {
 
   bool filter(Product p) {
     return p.name.toLowerCase().contains(search.text.toLowerCase());
-    // return false;
   }
 
-  Future<Either<AsdError, User>> getDataUser() async {
+  Future<AsdError?> getDataUser() async {
+    AsdError? _error;
     final Either<AsdError, User> result = await _mainResource.getDataUser();
-    return result;
+    result.fold(
+      (l) => _error = l,
+      (r) => data.user = r
+    );    
+    return _error;
   }
 
-  Future<Either<AsdError, List<Product>>> getListPrducts() async {
+  Future<AsdError?> getListPrducts() async {
+    AsdError? _error;
     final Either<AsdError, List<Product>> result = await _homeResource.getListProducts();
-    return result;
+    result.fold(
+      (l) => _error = l,
+      (r) => _doSuccessGetListProducts(r)
+    );    
+    return _error;
+  }
+
+  void _doSuccessGetListProducts(List<Product> products) {
+    this.products = products;
+    readyView = true;
   }
 
   Future<AsdError?> saveShopping(Map<String, dynamic> body, Product product) async {

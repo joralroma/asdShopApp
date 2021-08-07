@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/instance_manager.dart';
 
 // i18n
 import 'package:asdshop/app/i18n/asd_localization.dart';
@@ -8,8 +9,8 @@ import 'package:asdshop/app/i18n/asd_localization.dart';
 import 'package:asdshop/app/navigation/routes.dart';
 
 // Controller
+import 'package:asdshop/app/app_controller.dart';
 import 'package:asdshop/app/ui/home/home_controller.dart';
-import 'package:get/route_manager.dart';
 
 // Widgets
 import 'package:asdshop/app/ui/widgets/button.dart';
@@ -21,9 +22,18 @@ import 'package:asdshop/app/utils/theme.dart';
 import 'package:asdshop/app/utils/responsive.dart';
 
 
-class ProfileView extends GetWidget<HomeController> {
+class ProfileView extends StatefulWidget {
 
   const ProfileView({Key? key}) : super(key: key);
+
+  @override
+  _ProfileViewState createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+
+  final HomeController _homeController = Get.find<HomeController>();
+  final AppController _appController = Get.find<AppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,24 +52,24 @@ class ProfileView extends GetWidget<HomeController> {
               const SizedBox(height: 20),
               AsdCircleAvatar(
                 radius: _responsive.wp(18),
-                url: controller.data.user!.imgProfile,
+                url: _homeController.data.user!.imgProfile,
               ),
               const SizedBox(height: 50),
               AsdTextItem(
                 label: _asdLocalization.translate('profile.name'),
-                text: controller.data.user!.name,
+                text: _homeController.data.user!.name,
               ),
               AsdTextItem(
                 label: _asdLocalization.translate('profile.lastName'),
-                text: controller.data.user!.lastName,
+                text: _homeController.data.user!.lastName,
               ),
               AsdTextItem(
                 label: _asdLocalization.translate('profile.email'),
-                text: controller.data.user!.email,
+                text: _homeController.data.user!.email,
               ),
               AsdTextItem(
                 label: _asdLocalization.translate('profile.role'),
-                text: (controller.data.user!.role == 1) ? _asdLocalization.translate('profile.seller') : _asdLocalization.translate('profile.user'),
+                text: (_homeController.data.user!.role == 1) ? _asdLocalization.translate('profile.seller') : _asdLocalization.translate('profile.user'),
               ),
               const SizedBox(height: 40),
               AsdButton(
@@ -76,8 +86,7 @@ class ProfileView extends GetWidget<HomeController> {
   }
 
   void _logout() async {
-    await controller.appController.logout();
+    await _appController.logout();
     Get.offAllNamed(AsdPages.SplashPage);
   }
-
 }

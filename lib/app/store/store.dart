@@ -23,7 +23,6 @@ class AsdStore {
 
   Future<bool> validateToken() async {
     final String? value = await getToken();
-    print(value);
     if(value != null) {
       return true;
     }

@@ -18,14 +18,14 @@ class Shopping {
   );
 
   static Shopping fromJson(json) {
-    Shopping purchase = new Shopping(
+    Shopping shopping = new Shopping(
       json['_id'],
       json['user'],
       (json['product'] != null) ? Product.fromJson(json['product']) : null,
-      json['total'],
+      double.parse('${json['total']}'),
       json['createdAt'],
     );
-    return purchase;
+    return shopping;
   }
 
   static List<Shopping> fromJsonList(Iterable data) {

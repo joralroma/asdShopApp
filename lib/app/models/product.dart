@@ -27,7 +27,7 @@ class Product {
       json['_id'],
       json['name'],
       json['description'],
-      json['price'],
+      double.parse('${json['price']}'),
       json['stock'],
       json['imgs'].map<String>((e) => '$e').toList(),
       json['user'],

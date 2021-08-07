@@ -25,7 +25,16 @@ shopping:
   total: Total
   date: Date
 business:
+  title: These are your products
+  titleAddProduct: Create Product
   productsEmpty: You have no products created.
+  name: Name
+  description: Description
+  stock: Stock
+  price: Price
+  save: Save
+  errorData: You must fill in all fields.
+  successAddProduct: Product successfully added.
 profile:
   name: Name
   lastName: Last Name

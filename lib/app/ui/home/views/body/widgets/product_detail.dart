@@ -26,10 +26,12 @@ class ProductDetaild extends GetWidget<HomeController> {
 
   const ProductDetaild({
     Key? key,
-    required this.product
+    required this.product,
+    this.buy = true
   }) : super(key: key);
 
   final Product product;
+  final bool buy;
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +92,8 @@ class ProductDetaild extends GetWidget<HomeController> {
               text: '\$ ${product.price}',
               maxLines: 4,
             ),
-            const SizedBox(height: 50),
-            AsdButton(
+            if(buy) const SizedBox(height: 50),
+            if(buy) AsdButton(
               text: _asdLocalization.translate('body.buy'),
               color: AsdTheme.primaryColor,
               onPressed: () => _doBuyProduct(context, _asdLocalization),

@@ -14,6 +14,7 @@ class InputAsd extends StatelessWidget {
     required this.model,
     this.placeholder = '',
     this.maxLines = 1,
+    this.colorText = Colors.white,
     this.textInputAction = TextInputAction.next,
     this.textInputType = TextInputType.text
   }) : super(key: key);
@@ -21,6 +22,7 @@ class InputAsd extends StatelessWidget {
   final InputModel model;
   final int maxLines;
   final String placeholder;
+  final Color colorText;
   final TextInputAction textInputAction;
   final TextInputType textInputType;
 
@@ -38,7 +40,7 @@ class InputAsd extends StatelessWidget {
       textInputAction: textInputAction,
       style: AsdTheme.styleText.copyWith(
         fontSize: _responsive.ip(1.8),
-        color: Colors.white
+        color: colorText
       ),
       decoration: InputDecoration(
         alignLabelWithHint: true,

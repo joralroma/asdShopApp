@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+
+// Widgets
+import 'package:asdshop/app/ui/widgets/img.dart';
 
 // Models
 import 'package:asdshop/app/models/product.dart';
@@ -16,10 +18,12 @@ class ProductItem extends StatelessWidget {
 
   const ProductItem({
     Key? key,
-    required this.product
+    required this.product,
+    this.buy = true
   }) : super(key: key);
 
   final Product product;
+  final bool buy;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +31,7 @@ class ProductItem extends StatelessWidget {
     final Responsive _responsive = Responsive(context);
 
     return GestureDetector(
-      onTap: () => AsdModal.showModalBottom(context, ProductDetaild(product: product)),
+      onTap: () => AsdModal.showModalBottom(context, ProductDetaild(product: product, buy: buy)),
       child: Container(
         width: double.infinity,
         height: 120,
@@ -61,14 +65,7 @@ class ProductItem extends StatelessWidget {
                       color: AsdTheme.border
                     )
                   ),
-                  child: (product.imgs.isNotEmpty) ? ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => CircularProgressIndicator(),
-                      imageUrl: product.imgs.first,
-                    ),
-                  ) : const SizedBox.shrink(),
+                  child: (product.imgs.isNotEmpty) ? AsdImg(url: product.imgs.first) : const SizedBox.shrink(),
                 ),
                 Expanded(
                   child: Column(
@@ -89,7 +86,7 @@ class ProductItem extends StatelessWidget {
                       Flexible(
                         child: Text(
                           product.description,
-                          maxLines: 3,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: AsdTheme.styleText.copyWith(
                             fontSize: _responsive.ip(1.6),

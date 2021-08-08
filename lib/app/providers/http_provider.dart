@@ -48,7 +48,6 @@ class HttpProvider implements HttpResource {
   @override
   Future<Response> httpPost(String url, Map body) async {
     final Uri uri = Uri.parse(_baseUrl + url);
-    print(uri);
     return _client.post(
       uri,
       headers: await _getHeaders(),

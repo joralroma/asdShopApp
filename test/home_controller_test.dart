@@ -17,9 +17,9 @@ import 'package:asdshop/app/models/product.dart';
 import 'package:asdshop/app/ui/home/home_controller.dart';
 
 // Mock
-import 'mocks/home_controller_test.mocks.dart';
+import 'mocks/resource_mocks.dart';
 
-@GenerateMocks([MainResource, HomeResource]) //new
+@GenerateMocks([MainResource, HomeResource])
 void main() {
 
   final mainMock = MockMainResource();

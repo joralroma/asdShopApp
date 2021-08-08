@@ -22,7 +22,9 @@ import 'package:asdshop/app/ui/widgets/button.dart';
 import 'package:asdshop/app/utils/theme.dart';
 import 'package:asdshop/app/utils/modal.dart';
 import 'package:asdshop/app/utils/responsive.dart';
-import 'package:asdshop/app/utils/extencions.dart';
+
+// Widgets
+import 'widgets/select_role.dart';
 
 class RegisterPage extends GetWidget<RegisterController> {
 
@@ -79,10 +81,12 @@ class RegisterPage extends GetWidget<RegisterController> {
                       model: controller.password,
                     ),
                     const SizedBox(height: 30),
+                    SelectRole(),                       
+                    const SizedBox(height: 30),
                     AsdButton(
                       text: _asdLocalization.translate('register.register'),
                       onPressed: () => _doRegister(context),
-                    ),
+                    ),                 
                     const SizedBox(height: 40),
                     GestureDetector(
                       onTap: () => Get.back(),

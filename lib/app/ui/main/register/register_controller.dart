@@ -25,6 +25,8 @@ class RegisterController extends GetxController {
   final InputModel username = InputModel();
   final InputModel password = InputModel(isSecure: true);
 
+  final RxInt role = RxInt(2);
+
   final AsdStore store = Get.find<AsdStore>();
 
   bool get verifyForm => ( name.text.valid && lastName.text.valid && username.text.valid && password.text.valid );
@@ -41,7 +43,7 @@ class RegisterController extends GetxController {
 
   Future<AsdError?> doRegister() async {
     AsdError? _error;
-    final Map<String, dynamic> _data = { 'name': name.text, 'lastName': lastName.text, 'email': username.text, 'password': password.text, 'role': 1 };
+    final Map<String, dynamic> _data = { 'name': name.text, 'lastName': lastName.text, 'email': username.text, 'password': password.text, 'role': role.value };
     Either<AsdError, String> _result = await _mainResource.register(_data);
     _result.fold(
       (l) => _error = l,

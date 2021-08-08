@@ -4,8 +4,8 @@ class Config {
 
   bool prod = isProduction;
   String urlBackDev   = 'http://192.168.1.7:3000/api/';
-  String urlBackProd  = 'https://us-central1-oncobot.cloudfunctions.net/storageserver';
+  String urlBackProd  = 'https://asdshopback.herokuapp.com/api/';
   String urlSocketDev   = 'http://192.168.1.7:3000';
-  String urlSocketProd   = 'http://192.168.1.7:3000';
+  String urlSocketProd   = 'https://asdshopback.herokuapp.com';
 
 }

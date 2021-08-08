@@ -68,9 +68,19 @@ class ShoppingItem extends StatelessWidget {
           ),
           const SizedBox(width: 30),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Flexible(
+                child: Text(
+                  shopping.product!.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AsdTheme.styleTitle.copyWith(
+                    fontSize: _responsive.ip(1.8)
+                  ),
+                )
+              ),
               Flexible(
                 child: Text(
                   '${_asdLocalization.translate('shopping.total')}: ${shopping.total}',
@@ -81,7 +91,6 @@ class ShoppingItem extends StatelessWidget {
                   ),
                 )
               ),
-              const SizedBox(height: 10),
               Text(
                 '${_asdLocalization.translate('shopping.date')}: ${shopping.createdAt.toDateTime.toTimeCard}',
                 style: AsdTheme.styleTitle.copyWith(

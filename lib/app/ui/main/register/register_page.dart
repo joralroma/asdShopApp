@@ -95,6 +95,7 @@ class RegisterPage extends GetWidget<RegisterController> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),

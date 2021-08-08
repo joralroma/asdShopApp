@@ -85,6 +85,7 @@ class LoginPage extends GetWidget<LoginController> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),

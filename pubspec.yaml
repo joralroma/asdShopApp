@@ -29,6 +29,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.0
+  flutter_launcher_icons: ^0.9.1
+
+flutter_icons:
+  android: true 
+  ios: true
+  adaptive_icon_background: "#ffffff"
+  image_path_android: "assets/Imgs/asdShop.png"
+  image_path_ios: "assets/Imgs/asdShop.png"
 
   # flutter pub run  build_runner build --delete-conflicting-outputs
 
